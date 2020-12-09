@@ -37,13 +37,12 @@ removeFromFirebase = () => {
     render() {
         return (
             <>
-            
                 <ul>
                 {
                     this.state.savedRecommendations.map((firebaseMovie) => {
                         const primaryMovie = firebaseMovie[0];
-                        console.log(primaryMovie.title);
                         const arrayOfMovies = firebaseMovie[1];
+                        if (arrayOfMovies) {
                         return (
                             arrayOfMovies.map((movie) => {
                                 return (
@@ -55,6 +54,7 @@ removeFromFirebase = () => {
                                 )
                             })
                             )
+                        }
                         })
                     }
                 </ul>

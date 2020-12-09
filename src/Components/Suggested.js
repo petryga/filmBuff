@@ -12,35 +12,44 @@ class Suggested extends Component {
         super();
         this.state = {
             userSelection: '',
-            foreignMovie: [],
+            foreignMovie: []
         }
     }
 
     axiosCall = (val) => {
-        Axios({
-            url: `https://api.themoviedb.org/3/discover/movie/`,
-            params: {
-                api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
-                language: val,
-                with_genres: this.props.genre,
-            },
-        }).then((res) => {
-            let reducedData = res.data.results.slice(0,6);
-            this.setState({
-                foreignMovie: reducedData
+        let randomPage = (pageNumber) => { return (Math.floor(Math.random() * Math.floor(pageNumber)))};
+        if (val) {
+            Axios({
+                url: `https://api.themoviedb.org/3/discover/movie/`,
+                params: {
+                    api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
+                    language: val,
+                    with_genres: this.props.genre,
+                    page: randomPage(100)
+                },
+            }).then((res) => {
+                let reducedData = res.data.results.slice(0,6);
+                this.setState({
+                    foreignMovie: reducedData
+                })
+            }).catch((errorObj) => {
+                alert('error')
+                //maybe display 404 later
             })
-        }).catch((errorObj) => {
-            alert('error')
-            //maybe display 404 later
-        })
+        } else {
+            alert('Please select a language')
+        }
     }
     
     saveSelection = () => {
             const dbRef = firebase.database().ref();
-            if (this.state.foreignMovie === []) {
-                alert('Please select a language in order to save the recommendations')
-            } else {
-                dbRef.push([this.props.movie, this.state.foreignMovie]);
+            console.log('after like button', this.state.foreignMovie);
+            if (this.state.foreignMovie.length === 0) {
+                alert('Nothing has been selected yet')
+            }
+            else {
+                console.log('lucas')
+                dbRef.push([this.props.movie, this.state.foreignMovie])
             }
         }
 
@@ -56,6 +65,7 @@ class Suggested extends Component {
     }
 
     render() {
+        console.log('this is the foreign movie state', this.state.foreignMovie)
         return (
             <div>
                 <form>

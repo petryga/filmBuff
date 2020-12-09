@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import LinkButton from './LinkButton.js'
 
 class SearchBar extends Component {
     constructor() {
@@ -17,10 +17,11 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <form className="searchinShit">
-                <input onChange={this.handleChange} value={this.state.searchQuery} type="text" />
-                {/* The illusion that the search button will actually be a link visiting /search/search-term, which will take you to render <Catalogue /> */}
-                <Link to={`/search/${this.state.searchQuery}`}>Search!</Link>
+            <form className="search">
+                <input onChange={this.handleChange} value={this.state.searchQuery} type="text"/>
+                <LinkButton
+                    to={`/search/${this.state.searchQuery}`}
+                >Search</LinkButton>
             </form>
         )
     }

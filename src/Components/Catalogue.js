@@ -53,13 +53,15 @@ class Catalogue extends Component {
             <div className="catalogue">
                 {
                     this.state.movies.map((movie) => {
-                        return (
+                            if (movie.poster_path !== null) {
+                                return (
                             <div className="movie" key={movie.id}>
                                 <Link to={`/movie/${movie.id}`}>
                                     <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`Poster for ${movie.original_title}`} />
                                 </Link>
                             </div>
-                        )
+                            )
+                        }
                     })
                 }
             </div>
