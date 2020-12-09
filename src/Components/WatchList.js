@@ -1,11 +1,16 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import firebase from '../firebase';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(faTimes);
+
 
 class WatchList extends Component {
     constructor() {
         super();
         this.state = {
-            savedRecommendations: []
+            savedRecommendations: [],
         }
     }
 
@@ -25,24 +30,36 @@ class WatchList extends Component {
         });
     }
 
+removeFromFirebase = () => {
+    firebase.database().ref('/').remove();
+}
+
     render() {
         return (
             <>
+            
+                <ul>
                 {
                     this.state.savedRecommendations.map((firebaseMovie) => {
                         const primaryMovie = firebaseMovie[0];
+                        console.log(primaryMovie.title);
                         const arrayOfMovies = firebaseMovie[1];
                         return (
                             arrayOfMovies.map((movie) => {
                                 return (
                                     <div key={movie.id}>
+                                    <li>
                                         <h1>{movie.title}</h1>
+                                    </li>
                                     </div>
                                 )
                             })
-                        )
-                    })
-                }
+                            )
+                        })
+                    }
+                </ul>
+                    <button
+                    onClick={this.removeFromFirebase}><FontAwesomeIcon icon={['fas', 'times']}/></button>
             </>
         )
     }

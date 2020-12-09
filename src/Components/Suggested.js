@@ -2,6 +2,10 @@ import Axios from 'axios';
 import { Component } from 'react';
 import firebase from '../firebase.js';
 import NewMovies from './NewMovies.js';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(faHeart);
 
 class Suggested extends Component {
     constructor() {
@@ -25,7 +29,6 @@ class Suggested extends Component {
             this.setState({
                 foreignMovie: reducedData
             })
-            //this where we would push the data into firebase
         }).catch((errorObj) => {
             alert('error')
             //maybe display 404 later
@@ -71,7 +74,7 @@ class Suggested extends Component {
                         onClick={this.handleSubmit}>Show me</button>
                 </form>
                 <button className="favourite" onClick={this.saveSelection}>
-                    Save these recommendations!
+                <FontAwesomeIcon icon={['fa', 'heart']}/>
                 </button>
                 <NewMovies foreignMoviesProp={this.state.foreignMovie} />
             </div>

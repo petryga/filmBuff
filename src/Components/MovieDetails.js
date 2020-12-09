@@ -35,7 +35,6 @@ class MovieDetails extends Component {
 
     render() {
         const { original_title, tagline, overview, poster_path } = this.state.movie;
-        console.log(this.state.movie);
         return (
             <div className="poster">
                 <div className="description">
