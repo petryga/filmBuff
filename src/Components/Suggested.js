@@ -69,10 +69,8 @@ class Suggested extends Component {
             <div>
                 <br />
                 <form className="flex column dropDownForm">
-                    <label htmlFor="languagesDropdown">Interested in something similar but in a different language?</label>
-                    <div
-                        className="flex"
-                    >
+                    <label htmlFor="languagesDropDown">Interested in something similar but in a different language?</label>
+                    <div className="flex dropDownBox">
                         <select
                             name="languagesDropdown"
                             id="languagesDropdown"
@@ -83,8 +81,10 @@ class Suggested extends Component {
                             <option value="es">Spanish</option>
                         </select>
                         <button
-                            className="dropdown-btn"
-                            onClick={this.handleSubmit}>Show me</button></div>
+                            className="dropDownButton"
+                            onClick={this.handleSubmit}>Show me
+                        </button>
+                    </div>
                 </form>
                 <button className="favourite" onClick={this.saveSelection}>
                     <FontAwesomeIcon icon={['fa', 'heart']} />

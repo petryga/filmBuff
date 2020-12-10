@@ -47,19 +47,35 @@ a {
     text-decoration: none;
 }
 
+ header a:hover,
+ header a:focus {
+  background-color: #e5df00;
+  color: #235856;
+  outline: #235856 5px solid;
+  cursor: pointer;
+}
+
 img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie a:hover,
+.movie a:focus {
+  outline: #e5df00 5px solid;
+  outline-offset: -5px;
+  cursor: pointer;
 }
 
 input,
 button,
 label {
-display:block;
+  display:block;
 }
+
 *{
-  border: 2px solid rebeccapurple;
+  border: 2px solid #bffff0;
 }
 .wrapper {
     max-width: 1280px;
@@ -74,8 +90,10 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
 }
 
 header {
@@ -89,27 +107,69 @@ header a {
   text-decoration: none; 
 }
 
-nav a {
+.searchButtonBox input:hover,
+.searchButtonBox input:focus {
+    outline: #235856 5px solid;
+}
+
+.searchButtonBox button {
+  padding: 15px;
+  margin-left: 10px;
+  background-color: #235856;
+  color: #bffff0;
+}
+
+.searchButtonBox button:hover,
+.searchButtonBox button:focus {
+  padding: 15px;
+  margin-left: 10px;  
+  background-color: #e5df00;
   color: #235856;
-  font-size: 20px;
-  text-decoration: none;
+  outline: #235856 5px solid;
+  cursor: pointer;
+}
+
+.removeButton {
+  background-color: #bffff0;
+}
+
+button svg.fa-times {
+  font-size: 50px;
+}
+
+.removeButton:hover,
+.removeButton:focus{
+  color: #235856;
+  outline: #235856 5px solid;
+  cursor: pointer;
 }
 
 h1 {
   color: #235856;
   font-size: 50px;
-  font-weight: 600; 
+  font-weight: 600;
+  padding: 10px 5px 0 5px; 
+}
+
+
+h1:hover,
+h1:focus {
+  background-color: #e5df00;
+  color: #235856;
+  outline: #235856 5px solid;
+  cursor: pointer;
 }
 
 h2 {
   color: #235856;
-  padding-top: 20px;
+  padding: 20px 10px 0 10px;
   font-size: 40px; 
 }
 
 h3{
   text-align: center;
   padding: 10px 0;
+  font-size: 25px; 
 }
 
 .flex{
@@ -122,6 +182,10 @@ h3{
 
 .row {
   flex-direction: row;
+}
+
+.image img {
+  border: #e5df00 10px solid;
 }
 
 .image h2 {
@@ -150,18 +214,17 @@ h3{
 }
 
 .posterAll {
-  margin: 0 auto; 
+  justify-content: center;
 }
 
 .textContent {
   width: 50%;
-  border: 2px solid rebeccapurple;
+  border: 2px solid #124e40;
 }
 
 .textContent p {
   line-height: 25px;
   padding: 0px 20px;
-  /* text-shadow: #000 0.5px 1px; */
 }
 
 .textContent h2,
@@ -171,23 +234,56 @@ h3{
   justify-content: center;
 }
 
+.dropDownBox select,
+.dropDownButton {
+  padding: 10px;
+  margin: 0 20px 20px 0;
+}
+
+.dropDownBox select:hover,
+.dropDownBox select:focus,
+.dropDownButton:hover,
+.dropDownButton:focus {
+  background-color: #e5df00;
+  color: #235856;
+  outline: #235856 5px solid;
+  cursor: pointer;
+}
+
+svg.svg-inline--fa {
+  font-size: 40px;
+  color: #235856;
+  background-color: #bffff0;
+}
 
 .dropDownResult{
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
-.movieDropdown{
+.movieDropDown{
   width: 30%;
   margin: 5px 5px;
+  border: #e5df00 5px solid;
+  background-color: #e5df00;
 }
 
 .dropDownForm{
   align-items: center;
 }
 
-button.favourite{
-margin: 0 auto;
+button.favourite {
+  margin: 0 auto;
+  background-color: #bffff0;
+}
+
+button.favourite:hover,
+button.favourite:focus {
+  background-color: #e5df00;
+  color: #235856;
+  outline: #235856 5px solid;
+  cursor: pointer;  
 }
 
 label {
@@ -206,4 +302,5 @@ form.search input{
 
 footer {
   text-align: center;
+  padding: 30px 0;
 }

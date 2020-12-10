@@ -44,16 +44,15 @@ class MovieDetails extends Component {
                 </div>
                 <div className="textContent flex column">
                     <h2>{original_title}</h2>
-                    <h2>{tagline}</h2>
+                    <h3>{tagline}</h3>
                     <p>{overview}</p>
                     <Suggested
-           
-                        genre={this.state.genre}
-                        movie={this.state.movie}
+        
+                    genre={this.state.genre}
+                    movie={this.state.movie}
                     />
                 </div>
             </div>
-
         )
     }
 

@@ -58,8 +58,9 @@ removeFromFirebase = () => {
                         })
                     }
                 </ul>
-                    <button
-                    onClick={this.removeFromFirebase}><FontAwesomeIcon icon={['fas', 'times']}/></button>
+                    <button className="removeButton"
+                        onClick={this.removeFromFirebase}><FontAwesomeIcon icon={['fas', 'times']}/>
+                    </button>
             </>
         )
     }
