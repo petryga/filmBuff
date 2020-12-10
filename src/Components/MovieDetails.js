@@ -43,7 +43,7 @@ class MovieDetails extends Component {
                     </div>
                 </div>
                 <div className="textContent flex column">
-                    <h1>{original_title}</h1>
+                    <h2>{original_title}</h2>
                     <h2>{tagline}</h2>
                     <p>{overview}</p>
                     <Suggested

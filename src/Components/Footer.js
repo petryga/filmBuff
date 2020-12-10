@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="wrapper">
-                <p>Created @ Juno</p>
+                <p>&copy; Created @ Juno College</p>
             </footer>
         )
     }
