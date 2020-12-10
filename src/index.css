@@ -68,6 +68,12 @@ img {
   cursor: pointer;
 }
 
+.toggler {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
+
 input,
 button,
 label {
@@ -130,7 +136,16 @@ header a {
 }
 
 .removeButton {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
   background-color: #bffff0;
+  display: none;
+}
+
+
+.show {
+  display: block;
 }
 
 button svg.fa-times {
@@ -142,6 +157,31 @@ button svg.fa-times {
   color: #235856;
   outline: #235856 5px solid;
   cursor: pointer;
+}
+
+.watchList,
+.watchListOpen {
+  position: fixed;
+  width: 400px;
+  height: 100vh;
+  top: 0;
+  text-align: right;
+  z-index: 100;
+  padding: 20px;
+  background-color: #e5df00;
+  overflow: scroll;
+}
+
+.watchList {
+  right: -400px;
+}
+
+.watchListOpen {
+  right: 0px;
+}
+
+ul.watchList h2 {
+  font-size: .9em;
 }
 
 h1 {

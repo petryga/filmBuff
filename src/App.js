@@ -14,7 +14,7 @@ class App extends Component {
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <header className="wrapper flex">
-          <Link to="/"><h1>MOVIES</h1></Link>
+          <Link to="/"><h1>Film Buff</h1></Link>
             <SearchBar search={this.handleSearchCall} />
             <WatchList />
           </header>

@@ -43,12 +43,10 @@ class Suggested extends Component {
 
     saveSelection = () => {
         const dbRef = firebase.database().ref();
-        console.log('after like button', this.state.foreignMovie);
         if (this.state.foreignMovie.length === 0) {
             alert('Nothing has been selected yet')
         }
         else {
-            console.log('lucas')
             dbRef.push([this.props.movie, this.state.foreignMovie])
         }
     }
