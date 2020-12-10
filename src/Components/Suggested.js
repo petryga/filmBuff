@@ -3,7 +3,7 @@ import { Component } from 'react';
 import firebase from '../firebase.js';
 import NewMovies from './NewMovies.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHeart, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faHeart);
 
@@ -32,9 +32,8 @@ class Suggested extends Component {
                 this.setState({
                     foreignMovie: reducedData
                 })
-            }).catch((errorObj) => {
+            }).catch(() => {
                 alert('error')
-                //maybe display 404 later
             })
         } else {
             alert('Please select a language')
@@ -77,6 +76,10 @@ class Suggested extends Component {
                             <option value="" disabled>Language?</option>
                             <option value="de">German</option>
                             <option value="es">Spanish</option>
+                            <option value="it">Italian</option>
+                            <option value="cn">Chinese</option>
+                            <option value="ru">Russian</option>
+                            <option value="jp">Japanese</option>
                         </select>
                         <button
                             className="dropDownButton"

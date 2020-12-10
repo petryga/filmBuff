@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import firebase from '../firebase';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faTimes);
+library.add(faTimes, faAngleDoubleRight);
 
 
 class WatchList extends Component {
@@ -31,39 +31,51 @@ class WatchList extends Component {
         });
     }
 
-removeFromFirebase = () => {
-    firebase.database().ref('/').remove();
-}
+    removeFromFirebase = () => {
+        firebase.database().ref('/').remove();
+    }
 
-toggleWatchList = () => {
-    this.setState({ 
-        sidebarOpen: !this.state.sidebarOpen 
-    })
-}
+    toggleWatchList = () => {
+        this.setState({
+            sidebarOpen: !this.state.sidebarOpen
+        })
+    }
 
     render() {
         let sidebarClassname = this.state.sidebarOpen ? 'watchListOpen' : 'watchList';
         return (
             <>
                 <ul className={sidebarClassname}>
-                    <div className="toggler" onClick={this.toggleWatchList}><FontAwesomeIcon icon={faAngleDoubleRight} /></div>
-                <h1>Watch List</h1>
-                {
-                    this.state.savedRecommendations.map((firebaseMovie) => {
-                        const arrayOfMovies = firebaseMovie[1];
-                        if (arrayOfMovies) {
-                        return (
-                                arrayOfMovies.map((movie) => {
-                                    return (
-                                        <div key={movie.id}>
-                                            <li>
-                                                <h2>{movie.title}</h2>
-                                            </li>
-                                        </div>
-                                    )
-                                })
-                            )
-                        }
+                    <div className="toggler" tabIndex="1" onClick={this.toggleWatchList}><FontAwesomeIcon icon={faAngleDoubleRight} /></div>
+                    <h1>Watch List</h1>
+                    {
+                        this.state.savedRecommendations.map((firebaseMovie, index) => {
+                            const primaryMovie = firebaseMovie[0];
+                            {
+                                return (
+                                    <div key={index}>
+                                        <h2>{primaryMovie.original_title}</h2>
+                                    </div>
+                                )
+                            }
+                        })
+                    }
+                    {
+                        this.state.savedRecommendations.map((firebaseMovie) => {
+                            const arrayOfMovies = firebaseMovie[1];
+                            if (arrayOfMovies) {
+                                return (
+                                    arrayOfMovies.map((movie) => {
+                                        return (
+                                            <div key={movie.id}>
+                                                <li>
+                                                    <h2>{movie.title}</h2>
+                                                </li>
+                                            </div>
+                                        )
+                                    })
+                                )
+                            }
                         })
                     }
                     <button className={`removeButton ${this.state.savedRecommendations.length === 0 ? "" : "show"}`}

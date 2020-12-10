@@ -27,9 +27,8 @@ class MovieDetails extends Component {
                 movie: res.data,
                 genre: res.data.genres[0].id,
             })
-        }).catch((errorObj) => {
+        }).catch(() => {
             alert('error')
-            //maybe display 404 later
         })
     }
 
@@ -47,7 +46,6 @@ class MovieDetails extends Component {
                     <h3>{tagline}</h3>
                     <p>{overview}</p>
                     <Suggested
-        
                     genre={this.state.genre}
                     movie={this.state.movie}
                     />

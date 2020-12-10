@@ -13,18 +13,22 @@ const LinkButton = (props) => {
         staticContext,
         to,
         onClick,
+        buttonError,
         // ⬆ filtering out props that `button` doesn’t know what to do with.
         ...rest
     } = props
+
     return (
         <button
             {...rest} // `children` is just another prop!
             onClick={(event) => {
                 onClick && onClick(event)
                 history.push(to)
-            }}
+            }} 
+            disabled={buttonError === true}
         />
     )
+
 }
 
 LinkButton.propTypes = {

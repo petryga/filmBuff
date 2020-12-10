@@ -45,6 +45,8 @@ class Catalogue extends Component {
             this.setState({
                 movies: movies.data.results
             })
+        }).catch(() => {
+            alert('error')
         })
     }
 
@@ -53,13 +55,13 @@ class Catalogue extends Component {
             <div className="catalogue flex">
                 {
                     this.state.movies.map((movie) => {
-                            if (movie.poster_path !== null) {
-                                return (
-                            <div className="movie" key={movie.id}>
-                                <Link to={`/movie/${movie.id}`}>
-                                    <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`Poster for ${movie.original_title}`} />
-                                </Link>
-                            </div>
+                        if (movie.poster_path !== null) {
+                            return (
+                                <div className="movie" key={movie.id}>
+                                    <Link to={`/movie/${movie.id}`}>
+                                        <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`Poster for ${movie.original_title}`} />
+                                    </Link>
+                                </div>
                             )
                         }
                     })

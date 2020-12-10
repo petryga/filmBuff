@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="wrapper">
-                <p>&copy; Created @ Juno College</p>
+                <p>Aleksandra Petryga, Brandon Michael Wong and Lucas Regazzi 👑 @ Juno College &copy;</p>
             </footer>
         )
     }

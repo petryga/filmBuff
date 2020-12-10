@@ -80,9 +80,9 @@ label {
   display:block;
 }
 
-*{
+/* *{
   border: 2px solid #bffff0;
-}
+} */
 .wrapper {
     max-width: 1280px;
     width: 100%;
@@ -311,6 +311,10 @@ svg.svg-inline--fa {
 
 .dropDownForm{
   align-items: center;
+}
+
+button {
+  border: none;
 }
 
 button.favourite {

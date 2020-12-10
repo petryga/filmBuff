@@ -14,13 +14,14 @@ class App extends Component {
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <header className="wrapper flex">
-          <Link to="/"><h1>Film Buff</h1></Link>
+          <Link to="/"><h1 tabIndex="1">Film Buff</h1></Link>
             <SearchBar search={this.handleSearchCall} />
             <WatchList />
           </header>
             <Route exact path="/" component={Catalogue} />
             <Route path="/search/:searchQueryHere" component={Catalogue} />
             <Route path="/movie/:movieDetails" component={MovieDetails} />
+            {/* <Route path="/search" component={Catalogue} /> */}
             <Footer />
           </div>
       </Router>
