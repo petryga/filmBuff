@@ -385,3 +385,44 @@ footer {
   text-align: center;
   padding: 30px 0;
 }
+
+@media (max-width: 800px){
+
+  header {
+    display: inline;
+  }
+  .movie {
+    width: 33%;
+  }
+  .posterAll {
+  flex-direction: column;
+  }
+
+  .posterAll img {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .textContent{
+    width: auto;
+    padding-left: 0;
+  }
+
+  .movieDropDown {
+    width: 40%;
+    /* margin: 5px 5px; */
+    border: none;
+}
+.watchListOpen{
+  width: 300px;
+}
+}
+
+@media (max-width: 500px){
+  .movie{
+    width: 50%;
+  }
+  .watchListOpen{
+    width: 200px;
+  }
+}

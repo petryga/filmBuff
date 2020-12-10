@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
-          <header className="wrapper flex">
+          <header className="wrapper">
           <Link to="/"><h1 tabIndex="1">Film Buff</h1></Link>
             <SearchBar search={this.handleSearchCall} />
             <WatchList />
