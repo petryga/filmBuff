@@ -32,8 +32,9 @@ class Suggested extends Component {
                 this.setState({
                     foreignMovie: reducedData
                 })
-            }).catch(() => {
-                alert('error')
+            }).catch((e) => {
+                alert('error');
+                console.log(e)
             })
         } else {
             alert('Please select a language')
@@ -46,7 +47,16 @@ class Suggested extends Component {
             alert('Nothing has been selected yet')
         }
         else {
-            dbRef.push([this.props.movie, this.state.foreignMovie])
+            dbRef.once('value', (data) => {
+                const firebaseDataObj = data.val();
+                let firebaseData = [];
+                for (let prop in firebaseDataObj) {
+                    const movie = firebaseDataObj[prop];
+                    firebaseData.push(movie);
+                }
+                console.log(firebaseDataObj);
+                dbRef.push([this.props.movie, this.state.foreignMovie])
+            });
         }
     }
 

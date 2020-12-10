@@ -56,6 +56,7 @@ a {
 
 header a {
   outline: transparent 5px solid;
+  text-decoration: none; 
 }
 
  header a:hover,
@@ -122,10 +123,7 @@ header {
   padding: 33px 18px; 
   display: flex;
   justify-content: space-between; 
-}
-
-header a {
-  text-decoration: none; 
+  flex-wrap: wrap;
 }
 
 .searchButtonBox input:hover,
@@ -300,7 +298,7 @@ h2 {
 
 .textContent p {
   line-height: 25px;
-  padding: 0px 20px;
+  padding: 20px 20px;
 }
 
 .textContent h2,
@@ -316,8 +314,6 @@ h2 {
   margin: 0 20px 20px 0;
 }
 
-.dropDownBox select:hover,
-.dropDownBox select:focus,
 .dropDownButton:hover,
 .dropDownButton:focus {
   background-color: #e5df00;
@@ -328,7 +324,6 @@ h2 {
 
 svg.svg-inline--fa {
   font-size: 20px;
-  color: #235856;
 }
 
 .dropDownResult{
@@ -359,9 +354,7 @@ button.favourite {
 
 button.favourite:hover,
 button.favourite:focus {
-  background-color: #e5df00;
-  color: #235856;
-  outline: #235856 5px solid;
+  color: #e5df00;
   cursor: pointer;  
 }
 
@@ -373,6 +366,10 @@ label {
 
 .favourite {
   margin: 20px 0;
+}
+
+form.search {
+  max-width: calc(100vw - 36px);
 }
 
 form.search input {
