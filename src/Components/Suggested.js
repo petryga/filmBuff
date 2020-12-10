@@ -21,6 +21,7 @@ class Suggested extends Component {
         if (val) {
             Axios({
                 url: `https://api.themoviedb.org/3/discover/movie/`,
+                dataType: 'JSONP',
                 params: {
                     api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
                     language: val,
