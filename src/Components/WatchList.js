@@ -47,9 +47,9 @@ removeFromFirebase = () => {
                             arrayOfMovies.map((movie) => {
                                 return (
                                     <div key={movie.id}>
-                                    <li>
-                                        <h1>{movie.title}</h1>
-                                    </li>
+                                        <li>
+                                            <h2>{movie.title}</h2>
+                                        </li>
                                     </div>
                                 )
                             })

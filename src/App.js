@@ -5,6 +5,8 @@ import MovieDetails from './Components/MovieDetails.js'
 import SearchBar from './Components/SearchBar.js';
 import WatchList from './Components/WatchList.js';
 
+import SearchError from './Components/SearchError.js';
+
  //Some code was inspired by the codealong we did with Safi
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
             <Route exact path="/" component={Catalogue} />
             <Route path="/search/:searchQueryHere" component={Catalogue} />
             <Route path="/movie/:movieDetails" component={MovieDetails} />
+
+            <Route path="/search/:?" component={SearchError} />
           </div>
       </Router>
     )

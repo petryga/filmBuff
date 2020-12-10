@@ -37,17 +37,19 @@ class MovieDetails extends Component {
         const { original_title, tagline, overview, poster_path } = this.state.movie;
         return (
             <div className="poster">
-                <div className="description">
-                    <h1>{original_title}</h1>
-                    <Suggested
-                        genre={this.state.genre}
-                        movie={this.state.movie}
-                    />
-                    <h2>{tagline}</h2>
-                    <p>{overview}</p>
+                <div className="description wrapper">
                     <div className="image">
                         <img src={`http://image.tmdb.org/t/p/w500/${poster_path}`} alt={`poster for ${poster_path}`} />
                     </div>
+                    <div className="textContent">
+                            <h1>{original_title}</h1>
+                            <Suggested
+                                genre={this.state.genre}
+                                movie={this.state.movie}
+                                />
+                            <h2>{tagline}</h2>
+                            <p>{overview}</p>
+                        </div>
                 </div>
             </div>
         )

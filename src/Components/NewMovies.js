@@ -11,7 +11,9 @@ class NewMovies extends Component {
                     this.props.foreignMoviesProp.map((movie) => {
                         return (
                             <div key={movie.id}>
-                                <h1>{movie.title}</h1>
+                                <h2>{movie.title}</h2>
+                                {/* <p>{movie.vote_average}</p>
+                                <img src={movie.poster_path} alt={movie.title}/> */}
                             </div>
                         )
                     })

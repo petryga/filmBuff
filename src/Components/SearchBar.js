@@ -18,7 +18,7 @@ class SearchBar extends Component {
     render() {
         return (
             <form className="search">
-                <input onChange={this.handleChange} value={this.state.searchQuery} type="text"/>
+                <input onChange={this.handleChange} value={this.state.searchQuery} type="text" required/>
                 <LinkButton
                     to={`/search/${this.state.searchQuery}`}
                 >Search</LinkButton>
