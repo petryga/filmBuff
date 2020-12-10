@@ -5,8 +5,8 @@ class NewMovies extends Component {
 
     render() {
         return (
-            <div>
-                <h3>RESULTS</h3>
+            <div class="movieResults">
+                <h3>Results</h3>
                 <div className="flex dropDownResult">
                     {
                         this.props.foreignMoviesProp.map((movie) => {
@@ -21,7 +21,7 @@ class NewMovies extends Component {
                         })
                     }
                 </div>
-                </div>
+            </div>
         )
     }
 }

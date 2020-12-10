@@ -53,6 +53,6 @@ class MovieDetails extends Component {
             </div>
         )
     }
-
 }
+
 export default MovieDetails;

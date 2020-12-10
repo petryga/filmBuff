@@ -43,47 +43,58 @@ class WatchList extends Component {
 
     render() {
         let sidebarClassname = this.state.sidebarOpen ? 'watchListOpen' : 'watchList';
-        return (
-            <>
-                <ul className={sidebarClassname}>
-                    <div className="toggler" tabIndex="1" onClick={this.toggleWatchList}><FontAwesomeIcon icon={faAngleDoubleRight} /></div>
-                    <h1>Watch List</h1>
-                    {
-                        this.state.savedRecommendations.map((firebaseMovie, index) => {
-                            const primaryMovie = firebaseMovie[0];
-                            {
-                                return (
-                                    <div key={index}>
-                                        <h2>{primaryMovie.original_title}</h2>
-                                    </div>
-                                )
-                            }
-                        })
-                    }
-                    {
-                        this.state.savedRecommendations.map((firebaseMovie) => {
-                            const arrayOfMovies = firebaseMovie[1];
-                            if (arrayOfMovies) {
-                                return (
-                                    arrayOfMovies.map((movie) => {
-                                        return (
-                                            <div key={movie.id}>
-                                                <li>
-                                                    <h2>{movie.title}</h2>
-                                                </li>
-                                            </div>
-                                        )
-                                    })
-                                )
-                            }
-                        })
-                    }
-                    <button className={`removeButton ${this.state.savedRecommendations.length === 0 ? "" : "show"}`}
-                        onClick={this.removeFromFirebase}><FontAwesomeIcon icon={['fas', 'times']} />
-                    </button>
+        let togglerClassname = this.state.sidebarOpen ? 'togglerOpen' : 'toggler';
+        let removeButtonClassname = this.state.sidebarOpen ? 'removeButtonOpen' : 'removeButton';
+        if (this.state.savedRecommendations.length !== 0){
+            return (
+                <>
+                    <ul className={sidebarClassname}>
+                        <div className={togglerClassname} tabIndex="1" onClick={this.toggleWatchList}><FontAwesomeIcon icon={faAngleDoubleRight} /></div>
+                        <h2>Because you liked:</h2>
+                        {
+                            this.state.savedRecommendations.map((firebaseMovie, index) => {
+                                const primaryMovie = firebaseMovie[0];
+                                {
+                                    return (
+                                        <div key={index}>
+                                            <h3>{primaryMovie.original_title}</h3>
+                                        </div>
+                                    )
+                                }
+                            })
+                        }
+                        <h2>You should watch:</h2>
+                        {
+                            this.state.savedRecommendations.map((firebaseMovie) => {
+                                const arrayOfMovies = firebaseMovie[1];
+                                if (arrayOfMovies) {
+                                    return (
+                                        arrayOfMovies.map((movie) => {
+                                            return (
+                                                <div key={movie.id}>
+                                                    <li>
+                                                        <h3>{movie.title}</h3>
+                                                    </li>
+                                                </div>
+                                            )
+                                        })
+                                    )
+                                }
+                            })
+                        }
+                        <button className={`${removeButtonClassname} ${this.state.savedRecommendations.length === 0 ? "" : "show"}`}
+                            onClick={this.removeFromFirebase}><FontAwesomeIcon icon={['fas', 'times']} />
+                        </button>
+                    </ul>
+                </>
+            )
+    } else {
+            return (
+                <ul className="watchList">
+                    <p>Nothing to see here</p>
                 </ul>
-            </>
-        )
+            )
+        }
     }
 }
 
