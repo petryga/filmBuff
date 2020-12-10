@@ -45,8 +45,6 @@ class Catalogue extends Component {
             this.setState({
                 movies: movies.data.results
             })
-        }).catch(() => {
-            alert('error')
         })
     }
 
