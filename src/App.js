@@ -4,7 +4,7 @@ import Catalogue from './Components/Catalogue.js';
 import MovieDetails from './Components/MovieDetails.js'
 import SearchBar from './Components/SearchBar.js';
 import WatchList from './Components/WatchList.js';
-
+import Footer from './Components/Footer.js'
 import SearchError from './Components/SearchError.js';
 
  //Some code was inspired by the codealong we did with Safi
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
-          <header>
+          <header className="wrapper flex">
           <Link to="/"><h1>MOVIES</h1></Link>
             <SearchBar search={this.handleSearchCall} />
             <WatchList />
@@ -24,6 +24,7 @@ class App extends Component {
             <Route path="/movie/:movieDetails" component={MovieDetails} />
 
             <Route path="/search/:?" component={SearchError} />
+            <Footer />
           </div>
       </Router>
     )

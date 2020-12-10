@@ -7,18 +7,22 @@ class NewMovies extends Component {
 
         return (
             <div>
-                {
-                    this.props.foreignMoviesProp.map((movie) => {
-                        return (
-                            <div key={movie.id}>
-                                <h2>{movie.title}</h2>
-                                {/* <p>{movie.vote_average}</p>
-                                <img src={movie.poster_path} alt={movie.title}/> */}
-                            </div>
-                        )
-                    })
-                }
-            </div>
+                <h3>RESULTS</h3>
+                <div className="flex dropdownResult">
+                    {
+                        this.props.foreignMoviesProp.map((movie) => {
+                            return (
+                                <div key={movie.id}
+                                    className="movieDropdown">
+                                    <h2>{movie.title}</h2>
+                                    <p>{movie.vote_average}</p>
+                                    <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                </div>
         )
     }
 }

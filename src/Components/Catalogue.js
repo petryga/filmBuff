@@ -50,7 +50,7 @@ class Catalogue extends Component {
 
     render() {
         return (
-            <div className="catalogue">
+            <div className="catalogue flex">
                 {
                     this.state.movies.map((movie) => {
                             if (movie.poster_path !== null) {

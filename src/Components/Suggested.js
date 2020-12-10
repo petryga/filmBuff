@@ -17,7 +17,7 @@ class Suggested extends Component {
     }
 
     axiosCall = (val) => {
-        let randomPage = (pageNumber) => { return (Math.floor(Math.random() * Math.floor(pageNumber)))};
+        let randomPage = (pageNumber) => { return (Math.floor(Math.random() * Math.floor(pageNumber))) };
         if (val) {
             Axios({
                 url: `https://api.themoviedb.org/3/discover/movie/`,
@@ -28,7 +28,7 @@ class Suggested extends Component {
                     page: randomPage(100)
                 },
             }).then((res) => {
-                let reducedData = res.data.results.slice(0,6);
+                let reducedData = res.data.results.slice(0, 6);
                 this.setState({
                     foreignMovie: reducedData
                 })
@@ -40,18 +40,18 @@ class Suggested extends Component {
             alert('Please select a language')
         }
     }
-    
+
     saveSelection = () => {
-            const dbRef = firebase.database().ref();
-            console.log('after like button', this.state.foreignMovie);
-            if (this.state.foreignMovie.length === 0) {
-                alert('Nothing has been selected yet')
-            }
-            else {
-                console.log('lucas')
-                dbRef.push([this.props.movie, this.state.foreignMovie])
-            }
+        const dbRef = firebase.database().ref();
+        console.log('after like button', this.state.foreignMovie);
+        if (this.state.foreignMovie.length === 0) {
+            alert('Nothing has been selected yet')
         }
+        else {
+            console.log('lucas')
+            dbRef.push([this.props.movie, this.state.foreignMovie])
+        }
+    }
 
     handleInputChange = (e) => {
         this.setState({
@@ -65,28 +65,32 @@ class Suggested extends Component {
     }
 
     render() {
-        console.log('this is the foreign movie state', this.state.foreignMovie)
         return (
             <div>
-                <form>
+                <br />
+                <form className="flex column dropDownForm">
                     <label htmlFor="languagesDropdown">Interested in something similar but in a different language?</label>
-                    <select
-                        name="languagesDropdown"
-                        id="languagesDropdown"
-                        onChange={this.handleInputChange}
-                        value={this.state.userSelection}>
-                        <option value="" disabled>Language?</option>
-                        <option value="de">German</option>
-                        <option value="es">Spanish</option>
-                    </select>
-                    <button 
-                        className="dropdown-btn"
-                        onClick={this.handleSubmit}>Show me</button>
+                    <div
+                        className="flex"
+                    >
+                        <select
+                            name="languagesDropdown"
+                            id="languagesDropdown"
+                            onChange={this.handleInputChange}
+                            value={this.state.userSelection}>
+                            <option value="" disabled>Language?</option>
+                            <option value="de">German</option>
+                            <option value="es">Spanish</option>
+                        </select>
+                        <button
+                            className="dropdown-btn"
+                            onClick={this.handleSubmit}>Show me</button></div>
                 </form>
                 <button className="favourite" onClick={this.saveSelection}>
-                <FontAwesomeIcon icon={['fa', 'heart']}/>
+                    <FontAwesomeIcon icon={['fa', 'heart']} />
                 </button>
-                <NewMovies foreignMoviesProp={this.state.foreignMovie} />
+                <NewMovies
+                    foreignMoviesProp={this.state.foreignMovie} />
             </div>
         )
     }
