@@ -20,23 +20,42 @@ class Suggested extends Component {
         let randomPage = (pageNumber) => { return (Math.floor(Math.random() * Math.floor(pageNumber))) };
         if (val) {
             Axios({
-                url: `https://api.themoviedb.org/3/discover/movie/`,
-                dataType: 'JSONP',
+                method: 'GET',
+                url: 'http://proxy.hackeryou.com',
+                //OR url: 'https://proxy.hackeryou.com',
+                responseType: 'json',
                 params: {
-                    api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
-                    language: val,
-                    with_genres: this.props.genre,
-                    page: randomPage(100)
-                },
-            }).then((res) => {
-                let reducedData = res.data.results.slice(0, 6);
-                this.setState({
-                    foreignMovie: reducedData
+                        reqUrl: 'https://api.themoviedb.org/3/discover/movie/',
+                        proxyHeaders: {
+                            api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
+                            language: val,
+                            with_genres: this.props.genre,
+                            page: randomPage(100)
+                        },
+                        xmlToJSON: false
+                    }
+                }).then((res) => {
+                    console.log(res);
                 })
-            }).catch((e) => {
-                alert('error');
-                console.log(e)
-            })
+                
+            // Axios({
+            //     url: `https://api.themoviedb.org/3/discover/movie/`,
+            //     dataType: 'JSONP',
+            //     params: {
+            //         api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
+            //         language: val,
+            //         with_genres: this.props.genre,
+            //         page: randomPage(100)
+            //     },
+            // }).then((res) => {
+            //     let reducedData = res.data.results.slice(0, 6);
+            //     this.setState({
+            //         foreignMovie: reducedData
+            //     })
+            // }).catch((e) => {
+            //     alert('error');
+            //     console.log(e)
+            // })
         } else {
             alert('Please select a language')
         }

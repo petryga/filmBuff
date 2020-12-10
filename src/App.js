@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { HashRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Catalogue from './Components/Catalogue.js';
 import MovieDetails from './Components/MovieDetails.js'
 import SearchBar from './Components/SearchBar.js';
@@ -14,7 +14,6 @@ class App extends Component {
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <header className="wrapper flex">
-            <h3>deployed</h3>
           <Link to="/"><h1 tabIndex="1">Film Buff</h1></Link>
             <SearchBar search={this.handleSearchCall} />
             <WatchList />
