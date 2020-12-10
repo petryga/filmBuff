@@ -377,6 +377,10 @@ form.search input {
   width: 350px;
 }
 
+input {
+  border: none;
+}
+
 footer {
   text-align: center;
   padding: 30px 0;

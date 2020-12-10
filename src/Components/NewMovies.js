@@ -5,7 +5,7 @@ class NewMovies extends Component {
 
     render() {
         return (
-            <div class="movieResults">
+            <div className="movieResults">
                 <h3>Results</h3>
                 <div className="flex dropDownResult">
                     {
