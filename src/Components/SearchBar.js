@@ -28,10 +28,15 @@ class SearchBar extends Component {
     render() {
         return (
             <form className="search flex searchButtonBox">
+                <label htmlFor="search" 
+                className="srOnly">
+                    Search
+                </label>
                 <input
                     onChange={this.handleChange}
                     value={this.state.searchQuery}
                     type="text" 
+                    id="search"
                     placeholder="search"/>
                 <LinkButton
                     buttonError={this.state.inputError}

@@ -1,3 +1,5 @@
+//this component comprises the functionality that stores and displays saved recommendations to users in a toggleable menu
+
 import { Component } from 'react';
 import firebase from '../firebase';
 import { faAngleDoubleRight, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +15,7 @@ class WatchList extends Component {
         }
     }
 
+    //listens for updating data in firebase
     componentDidMount() {
         const dbRef = firebase.database().ref();
         dbRef.on('value', (data) => {
@@ -29,10 +32,13 @@ class WatchList extends Component {
         });
     }
 
+    //removes all input in firebase
+    //for future, we'd like to resolve
     removeFromFirebase = () => {
         firebase.database().ref('/').remove();
     }
 
+    //handles the state of the open side bar, becomes the opposite boolean value on click
     toggleWatchList = () => {
         this.setState({
             sidebarOpen: !this.state.sidebarOpen
@@ -40,14 +46,16 @@ class WatchList extends Component {
     }
 
     render() {
+        //these variables change depending on the state of the open sidebar
         let sidebarClassname = this.state.sidebarOpen ? 'watchListOpen' : 'watchList';
         let togglerClassname = this.state.sidebarOpen ? 'togglerOpen' : 'toggler';
         let removeButtonClassname = this.state.sidebarOpen ? 'removeButtonOpen' : 'removeButton';
         if (this.state.savedRecommendations.length !== 0){
+            //the original movie and the saved recommendations are mapped through and displayed in tandem
             return (
                 <>
                     <ul className={sidebarClassname}>
-                        <div className={togglerClassname} tabIndex="1" onClick={this.toggleWatchList}><FontAwesomeIcon icon={faAngleDoubleRight} /></div>
+                        <div className={togglerClassname} tabIndex="1" onClick={this.toggleWatchList} onKeyDown={this.toggleWatchList}><FontAwesomeIcon icon={faAngleDoubleRight} aria-label="Open the recommendations list"/></div>
                         <h2>Because you liked:</h2>
                         {
                             this.state.savedRecommendations.map((firebaseMovie, index) => {
@@ -80,8 +88,8 @@ class WatchList extends Component {
                                 }
                             })
                         }
-                        <button className={`${removeButtonClassname} ${this.state.savedRecommendations.length === 0 ? "" : "show"}`}
-                            onClick={this.removeFromFirebase}><FontAwesomeIcon icon={faTrash} />
+                        <button className={`${removeButtonClassname} ${this.state.savedRecommendations.length === 0 ? "" : "show"}`} onClick={this.removeFromFirebase}>
+                            <FontAwesomeIcon icon={faTrash} aria-label="Delete all recommendations"/>
                         </button>
                     </ul>
                 </>

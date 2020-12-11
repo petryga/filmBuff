@@ -1,3 +1,5 @@
+//this component displays the selected movie, its details, and — if the user so chooses a specific language — a list of 6 foreign language recommendations related to the original movie selected
+
 import Axios from 'axios';
 import { Component } from 'react';
 import Suggested from './Suggested.js';
@@ -12,6 +14,7 @@ class MovieDetails extends Component {
     }
 
     componentDidMount() {
+        //this axios call populates the details for the specific movie selected from catalogue, captured by props. importantly the selected movie's genre is captured once the axios call is made.
         Axios({
             url: `https://api.themoviedb.org/3/movie/${this.props.match.params.movieDetails}`,
             params: {
@@ -22,6 +25,7 @@ class MovieDetails extends Component {
                 include_video: 'false',
                 page: '1'
             },
+        //reuslts of the api call that provide information on the movie selected are stored in the movie state. the movie's genre is extrapolated from the data, and held in its own state for later.
         }).then((res) => {
             this.setState({
                 movie: res.data,
@@ -33,8 +37,10 @@ class MovieDetails extends Component {
     }
 
     render() {
+        //the data is destructured here for ease of use
         const { original_title, tagline, overview, poster_path } = this.state.movie;
         return (
+        //once the api call is received and state is set, the results are displayed here
             <div className="posterAll flex wrapper">
                 <div className="image flex column">
                     <div className="image">
