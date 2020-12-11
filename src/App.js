@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { HashRouter as Router, Route, Link} from 'react-router-dom';
 import Catalogue from './Components/Catalogue.js';
 import MovieDetails from './Components/MovieDetails.js'
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL}>
-        <div className="App">
+        <Fragment className="App">
           <header className="wrapper">
           <Link to="/"><h1 tabIndex="1">Film Buff</h1></Link>
             <SearchBar search={this.handleSearchCall} />
@@ -22,7 +22,7 @@ class App extends Component {
             <Route path="/search/:searchQueryHere" component={Catalogue} />
             <Route path="/movie/:movieDetails" component={MovieDetails} />
             <Footer />
-        </div>
+        </Fragment>
       </Router>
     )
   }

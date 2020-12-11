@@ -82,13 +82,13 @@ class Suggested extends Component {
                             id="languagesDropdown"
                             onChange={this.handleInputChange}
                             value={this.state.userSelection}>
-                            <option value="" disabled>Language?</option>
-                            <option value="de">German</option>
-                            <option value="es">Spanish</option>
-                            <option value="it">Italian</option>
+                            <option value="" disabled>Language</option>
                             <option value="cn">Chinese</option>
-                            <option value="ru">Russian</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
                             <option value="jp">Japanese</option>
+                            <option value="ru">Russian</option>
+                            <option value="es">Spanish</option>
                         </select>
                         <button
                             className="dropDownButton"

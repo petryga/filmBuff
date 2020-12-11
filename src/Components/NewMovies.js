@@ -1,11 +1,11 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 
 
 class NewMovies extends Component {
 
     render() {
         return (
-            <div className="movieResults">
+            <Fragment className="movieResults">
                 <h3>Results</h3>
                 <div className="flex dropDownResult">
                     {
@@ -21,7 +21,7 @@ class NewMovies extends Component {
                         })
                     }
                 </div>
-            </div>
+            </Fragment>
         )
     }
 }
