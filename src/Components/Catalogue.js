@@ -46,7 +46,7 @@ class Catalogue extends Component {
             params: {
                 api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
                 language: 'en-US',
-                page: randomPage(100),
+                page: randomPage(5),
                 query: searchQuery
             }
         //results of the api call are stored and used for display purposes in the state of Catalogue's component
