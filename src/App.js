@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { HashRouter as Router, Route, Link} from 'react-router-dom';
 import Catalogue from './Components/Catalogue.js';
 import MovieDetails from './Components/MovieDetails.js'
 import SearchBar from './Components/SearchBar.js';
@@ -21,9 +21,8 @@ class App extends Component {
             <Route exact path="/" component={Catalogue} />
             <Route path="/search/:searchQueryHere" component={Catalogue} />
             <Route path="/movie/:movieDetails" component={MovieDetails} />
-            {/* <Route path="/search" component={Catalogue} /> */}
             <Footer />
-          </div>
+        </div>
       </Router>
     )
   }

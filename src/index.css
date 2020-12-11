@@ -54,19 +54,6 @@ a {
     text-decoration: none;
 }
 
-header a {
-  outline: transparent 5px solid;
-  text-decoration: none; 
-}
-
- header a:hover,
- header a:focus {
-  background-color: #e5df00;
-  color: #235856;
-  outline: #235856 5px solid;
-  cursor: pointer;
-}
-
 img {
   width: 100%;
   height: auto;
@@ -119,10 +106,10 @@ h3 {
 }
 
 header {
+  padding: 100px;
   color: #235856;
-  padding: 33px 18px; 
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -132,16 +119,14 @@ header {
 }
 
 .searchButtonBox button {
-  color: #fff;
   padding: 15px;
-  margin-left: 10px;
+  display: inline-block;
+  color: #fff;
   background-color: #235856;
 }
 
 .searchButtonBox button:hover,
 .searchButtonBox button:focus {
-  padding: 15px;
-  margin-left: 10px;  
   background-color: #e5df00;
   color: #235856;
   outline: #235856 5px solid;
@@ -153,11 +138,12 @@ header {
   position: fixed;
   top: 25px;
   display: none;
+  color: #235856;
   background-color: transparent;
 }
 
 .removeButton {
-    right: -400px;
+  right: -400px;
 }
 
 .removeButtonOpen {
@@ -166,10 +152,6 @@ header {
 
 .show {
   display: block;
-}
-
-button svg.fa-times {
-  font-size: 20px;
 }
 
 .removeButton:hover,
@@ -185,7 +167,6 @@ button svg.fa-times {
   width: 400px;
   height: 100vh;
   top: 0;
-  text-align: right;
   z-index: 100;
   padding: 25px;
   background-color: #e5df00;
@@ -228,6 +209,7 @@ h1 {
   font-size: 5rem;
   font-weight: 600;
   padding: 10px 5px 0 5px; 
+  margin-bottom: 10px;
 }
 
 
@@ -294,11 +276,13 @@ h2 {
   width: 50%;
   padding-left: 50px;
   border: 2px solid #bffff0;
+  font-size: 2rem;
 }
 
 .textContent p {
   line-height: 25px;
   padding: 20px 20px;
+  color: #235856;
 }
 
 .textContent h2,
@@ -320,10 +304,6 @@ h2 {
   color: #235856;
   outline: #235856 5px solid;
   cursor: pointer;
-}
-
-svg.svg-inline--fa {
-  font-size: 20px;
 }
 
 .dropDownResult{
@@ -350,6 +330,8 @@ button {
 button.favourite {
   margin: 0 auto;
   background-color: transparent;
+  color: #235856;
+  font-size: 4rem;
 }
 
 button.favourite:hover,
@@ -369,12 +351,13 @@ label {
 }
 
 form.search {
-  max-width: calc(100vw - 36px);
+  margin: 10px 20px;
 }
 
 form.search input {
-  padding: 5px;
-  width: 350px;
+  display: inline-block;
+  padding: 15px;
+  max-width: 350px;
 }
 
 input {
@@ -389,8 +372,11 @@ footer {
 @media (max-width: 800px){
 
   header {
-    display: inline;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
+
   .movie {
     width: 33%;
   }
@@ -410,12 +396,13 @@ footer {
 
   .movieDropDown {
     width: 40%;
-    /* margin: 5px 5px; */
     border: none;
 }
+
 .watchListOpen{
   width: 300px;
 }
+
 }
 
 @media (max-width: 500px){

@@ -1,9 +1,7 @@
 import { Component } from 'react';
 import firebase from '../firebase';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleRight, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faTimes, faAngleDoubleRight);
 
 
 class WatchList extends Component {
@@ -83,7 +81,7 @@ class WatchList extends Component {
                             })
                         }
                         <button className={`${removeButtonClassname} ${this.state.savedRecommendations.length === 0 ? "" : "show"}`}
-                            onClick={this.removeFromFirebase}><FontAwesomeIcon icon={['fas', 'times']} />
+                            onClick={this.removeFromFirebase}><FontAwesomeIcon icon={faTrash} />
                         </button>
                     </ul>
                 </>

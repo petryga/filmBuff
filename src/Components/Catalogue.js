@@ -30,6 +30,7 @@ class Catalogue extends Component {
 
     theApiCall = (searchQuery) => {
         let endPointWord = 'discover';
+        let randomPage = (pageNumber) => { return (Math.floor(Math.random() * Math.floor(pageNumber))) };
         if (searchQuery) {
             endPointWord = 'search';
         }
@@ -38,7 +39,7 @@ class Catalogue extends Component {
             params: {
                 api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
                 language: 'en-US',
-                page: 1,
+                page: randomPage(100),
                 query: searchQuery
             }
         }).then((movies) => {
