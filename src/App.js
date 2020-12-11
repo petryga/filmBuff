@@ -7,10 +7,10 @@ import WatchList from './Components/WatchList.js';
 import Footer from './Components/Footer.js'
 
  //Some code was inspired by the codealong we did with Safi
-
 class App extends Component {
   render() {
     return (
+      //We had to use a hash router to go live, but it's compromised some functionality
       <Router basename={process.env.PUBLIC_URL}>
         <Fragment className="App">
           <header className="wrapper">
