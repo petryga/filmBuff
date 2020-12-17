@@ -1,27 +1,30 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 
 
 class NewMovies extends Component {
 
     render() {
         return (
-            <Fragment className="movieResults">
+
+            <div className="movieResults">
                 <h3>Results</h3>
                 <div className="flex dropDownResult">
                     {
                         this.props.foreignMoviesProp.map((movie) => {
                             if (movie.poster_path !== null) {
-                            return (
-                                <div key={movie.id}
-                                    className="movieDropDown">
-                                    <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-                                </div>
-                            )
+                                return (
+                                    <div key={movie.id}
+                                        className="movieDropDown">
+                                        <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                                    </div>
+                                )
+                            }else {
+                                return null
                             }
                         })
                     }
                 </div>
-            </Fragment>
+            </div>
         )
     }
 }

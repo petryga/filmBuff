@@ -60,13 +60,13 @@ class WatchList extends Component {
                         {
                             this.state.savedRecommendations.map((firebaseMovie, index) => {
                                 const primaryMovie = firebaseMovie[0];
-                                {
+                                
                                     return (
                                         <div key={index}>
                                             <h3>{primaryMovie.original_title}</h3>
                                         </div>
                                     )
-                                }
+                                
                             })
                         }
                         <h2>You should watch:</h2>
@@ -85,6 +85,8 @@ class WatchList extends Component {
                                             )
                                         })
                                     )
+                                } else {
+                                    return null
                                 }
                             })
                         }

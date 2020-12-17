@@ -17,7 +17,8 @@ class SearchBar extends Component {
         })
     }
 
-    handleAdd = () => {
+    handleAdd = (e) => {
+        e.preventDefault();
         if (this.state.searchQuery === '') {
             this.setState({
                 inputError: true,

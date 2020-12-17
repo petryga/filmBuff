@@ -1,5 +1,4 @@
 //this component does the work of providing recommendations to the user based on the original movie they selected, as well as the language they decide they'd like the recommendations to appear in. once these recommendations are retrieved and printed, the user can store the recommendations along with the original movie selected in a database.
-
 import Axios from 'axios';
 import { Component } from 'react';
 import firebase from '../firebase.js';
@@ -29,7 +28,7 @@ class Suggested extends Component {
                     api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
                     language: val,
                     with_genres: this.props.genre,
-                    page: randomPage(100)
+                    page: randomPage(100) + 1 
                 },
             //because the data comes back to us as a bulky 20 objects in an array, reducedData slices it down to a more manageable 6 movies
             }).then((res) => {

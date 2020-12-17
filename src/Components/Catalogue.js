@@ -1,6 +1,6 @@
 //this component comprises the main directory of the application
 
-import Axios from 'axios';
+import axios from 'axios';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -41,12 +41,12 @@ class Catalogue extends Component {
         if (searchQuery) {
             endPointWord = 'search';
         }
-        Axios({
+        axios({
             url: `https://api.themoviedb.org/3/${endPointWord}/movie`,
             params: {
                 api_key: '47f7f0a78ce3e2f1427da95247b6bc0e',
                 language: 'en-US',
-                page: randomPage(5),
+                page: 1,
                 query: searchQuery
             }
         //results of the api call are stored and used for display purposes in the state of Catalogue's component
@@ -54,6 +54,8 @@ class Catalogue extends Component {
             this.setState({
                 movies: movies.data.results
             })
+        }).catch((e)=>{
+            console.log(e);
         })
     }
 
@@ -72,6 +74,8 @@ class Catalogue extends Component {
                                     </Link>
                                 </div>
                             )
+                        }else {
+                            return null
                         }
                     })
                 }
